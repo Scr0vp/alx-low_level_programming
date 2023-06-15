@@ -1,7 +1,10 @@
 #include <stdio.h>
 
 /*
- * This program uses the puts function to print a message to the console.
+ * Main function:
+ * This is the entry point of the program.
+ * It prints a message using the puts function.
+ * Returns 0 to indicate successful execution.
  */
 int main(void)
 {
