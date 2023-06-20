@@ -1,6 +1,7 @@
 #include "main.h"
 
-/* main - print _putchart
+/**
+ * main - print _putchart
  *
  */
 
