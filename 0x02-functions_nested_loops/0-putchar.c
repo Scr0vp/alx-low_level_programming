@@ -3,7 +3,7 @@
 /**
  * main - print _putchart
  *
- * Return - Always 0 indicate (success)
+ * Return: Always 0 indicate (success)
  */
 
 int main(void)
