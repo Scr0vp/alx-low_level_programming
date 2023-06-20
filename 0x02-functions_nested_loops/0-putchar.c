@@ -1,5 +1,8 @@
 #include "main.h"
 
+/* main - print _putchart
+ *
+ */
 
 int main(void)
 {
