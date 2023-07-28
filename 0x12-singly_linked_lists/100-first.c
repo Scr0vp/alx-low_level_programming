@@ -6,7 +6,7 @@ void first(void) __attribute__ ((constructor));
  * first - Constructor function executed before the main function.
  *
  * This function is marked with the 'constructor' attribute, which means it
- * will be automatically executed before the main function when the program starts.
+ * will be automatically executed before the main function.
  * It prints two lines of text to the standard output.
  */
 void first(void)
