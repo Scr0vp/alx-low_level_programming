@@ -3,8 +3,11 @@
 void first(void) __attribute__ ((constructor));
 
 /**
- * first - prints a sentence before the main
- * function is executed
+ * first - Constructor function executed before the main function.
+ *
+ * This function is marked with the 'constructor' attribute, which means it
+ * will be automatically executed before the main function when the program starts.
+ * It prints two lines of text to the standard output.
  */
 void first(void)
 {
