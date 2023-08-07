@@ -60,36 +60,40 @@ dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 exit(97);
 }
 
-buffer = create_buffer(argv[2]);
+buffer = create_buffer(argv[1]);
 from = open(argv[1], O_RDONLY);
 
-while ((r = read(from, buffer, 1024)) > 0)
+if (from == -1)
 {
-if (from == -1 || r == -1)
-{
-dprintf(STDERR_FILENO,
-"Error: Can't read from file %s\n", argv[1]);
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 free(buffer);
 exit(98);
 }
 
-to = open(argv[2], O_WRONLY | O_APPEND | O_CREAT, 0664);
-w = write(to, buffer, r);
+to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
-if (to == -1 || w == -1)
+if (to == -1)
 {
-dprintf(STDERR_FILENO,
-"Error: Can't write to %s\n", argv[2]);
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 free(buffer);
 exit(99);
 }
 
-close_file(to);
+while ((r = read(from, buffer, 1024)) > 0)
+{
+w = write(to, buffer, r);
+
+if (w == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+free(buffer);
+exit(99);
+}
 }
 
 free(buffer);
 close_file(from);
+close_file(to);
 
 return (0);
 }
-
