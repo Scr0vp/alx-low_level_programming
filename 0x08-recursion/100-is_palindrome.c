@@ -11,7 +11,7 @@
  */
 bool is_alpha(char c)
 {
-	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
 /**
@@ -26,25 +26,25 @@ bool check_palindrome(char *s, int start, int end)
 {
 	if (start >= end)
 	{
-		return true;
+		return (true);
 	}
 
 	if (!is_alpha(s[start]))
 	{
-		return check_palindrome(s, start + 1, end);
+		return (check_palindrome(s, start + 1, end));
 	}
 
 	if (!is_alpha(s[end]))
 	{
-		return check_palindrome(s, start, end - 1);
+		return (check_palindrome(s, start, end - 1));
 	}
 
 	if (s[start] != s[end])
 	{
-		return false;
+		return (false);
 	}
 
-	return check_palindrome(s, start + 1, end - 1);
+	return (check_palindrome(s, start + 1, end - 1));
 }
 
 /**
@@ -57,6 +57,6 @@ int is_palindrome(char *s)
 {
 	int length = strlen(s);
 
-	return check_palindrome(s, 0, length - 1);
+	return (check_palindrome(s, 0, length - 1));
 }
 
