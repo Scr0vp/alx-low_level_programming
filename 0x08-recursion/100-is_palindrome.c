@@ -28,22 +28,22 @@ bool check_palindrome(char *s, int start, int end)
 	{
 		return true;
 	}
-	
+
 	if (!is_alpha(s[start]))
 	{
 		return check_palindrome(s, start + 1, end);
 	}
-	
+
 	if (!is_alpha(s[end]))
 	{
 		return check_palindrome(s, start, end - 1);
 	}
-	
+
 	if (s[start] != s[end])
 	{
 		return false;
 	}
-	
+
 	return check_palindrome(s, start + 1, end - 1);
 }
 
@@ -56,6 +56,7 @@ bool check_palindrome(char *s, int start, int end)
 int is_palindrome(char *s)
 {
 	int length = strlen(s);
+
 	return check_palindrome(s, 0, length - 1);
 }
 
