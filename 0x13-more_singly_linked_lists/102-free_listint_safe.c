@@ -19,19 +19,18 @@ size_t free_listint_safe(listint_t **h)
 
 	while (current)
 	{
-		tmp = current;
-		current = current->next;
+		tmp = current->next;
 
-		if (tmp->next == tmp)
+		if (current >= tmp)
 		{
-			free(tmp);
+			free(current);
 			break;
 
 		}
 
-		tmp->next = tmp;
-		free(tmp);
+		free(current);
 		len++;
+		current = tmp;
 	}
 
 	return (len);
